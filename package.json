@@ -1,0 +1,18 @@
+{
+  "dependencies": {
+    "fastify": "^4.22.2"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch --no-warnings server.js"
+  },
+  "name": "smart-api",
+  "version": "1.0.0",
+  "main": "server.js",
+  "devDependencies": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "type": "module"
+}
