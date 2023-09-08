@@ -1,1 +1,36 @@
 POST http://localhost:3000/ambiente
+Content-Type: application/json
+
+{
+    "descricao": "Cozinha",
+    "dispositivos": []
+}
+
+###
+
+GET http://localhost:3000/ambiente
+
+###
+
+PUT http://localhost:3000/ambiente/71563f5b-e18b-4052-9fe8-7c8ef4c81af0
+Content-Type: application/json
+
+{
+    "descricao": "Cozinha",
+    "dispositivos": []
+}
+
+###
+
+DELETE http://localhost:3000/ambiente/8866f245-ea54-42d2-825d-bb30ac6de74f
+
+###
+
+POST http://localhost:3000/ambiente/7b38b893-1296-4128-8a8c-9c31abc49c6c/dispositivo
+Content-Type: application/json
+
+{
+    "nome": "lampada",
+    "conexao": "ligado",
+    "status": true
+}

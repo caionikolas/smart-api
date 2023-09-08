@@ -6,30 +6,60 @@ const server = fastify()
 const database = new DatabaseMemory()
 
 server.post('/ambiente', (request, reply) => {
+    const { descricao, dispositivos } = request.body
+
     database.create({
-        descricao: "Sala",
-        itens: []
+        descricao,
+        dispositivos
     })
 
     return reply.status(201).send()
 })
 
-server.get('/ambiente', (request, reply) => {
-    database.list()
+server.get('/ambiente', (request) => {
+    const search = request.query.search
 
-    console.log(database.list())
+    const ambiente = database.list(search)
+
+    return ambiente
+})
+
+
+server.put('/ambiente/:id', (request, reply) => {
+   const ambienteId = request.params.id
+   const { descricao, dispositivos } = request.body
+
+   database.update(ambienteId, {
+    descricao,
+    dispositivos
+   })
+
+   return reply.status(204).send()
+})
+
+server.delete('/ambiente/:id', (request, reply) => {
+    const ambienteID = request.params.id
+
+    database.delete(ambienteID)
+
+    return reply.status(204).send()
+})
+
+
+//Itens
+server.post('/ambiente/:id/dispositivo', (request, reply) => {
+    const { nome, conexao, status } = request.body
+    const ambienteID = request.params.id
+
+    database.add(ambienteID, {
+        nome,
+        conexao,
+        status
+    })
 
     return reply.status(201).send()
 })
 
-
-server.put('/ambiente/:id', () => {
-    return 'Hello Node'
-})
-
-server.delete('/ambiente/:id', () => {
-    return 'Hello Node'
-})
 
 server.listen({
     port: 3000
