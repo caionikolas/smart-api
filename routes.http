@@ -12,7 +12,7 @@ GET http://localhost:3000/ambiente
 
 ###
 
-PUT http://localhost:3000/ambiente/e27cb4a5-8f1c-4eba-aa74-1d204587ceae
+PUT http://localhost:3000/ambiente/cfc4246e-eb39-4dbd-8a0d-a2a3eb4219de
 Content-Type: application/json
 
 {
