@@ -1,47 +1,113 @@
 import { randomUUID } from 'node:crypto'
 
-export class DatabaseMemory{
-    #ambientes = new Map()
+export class DatabaseMemory {
+  #ambientes = new Map()
 
-    list(search){
-        return Array.from(this.#ambientes.entries())
-            .map((ambienteArray) => {
-                const id = ambienteArray[0]
-                const data = ambienteArray[1]
+  list(search) {
+    return Array.from(this.#ambientes.entries())
+      .map(ambienteArray => {
+        const id = ambienteArray[0]
+        const data = ambienteArray[1]
 
-                return {
-                    id,
-                    ...data
-                }
-            })
-            .filter(ambiente => {
-                if(search) {
-                    return ambiente.descricao.includes(search)
-                }
+        return {
+          id,
+          ...data
+        }
+      })
+      .filter(ambiente => {
+        if (search) {
+          return ambiente.descricao.includes(search)
+        }
 
-                return true
-            })
+        return true
+      })
+  }
+
+  create(ambiente) {
+    const ambienteID = randomUUID()
+
+    this.#ambientes.set(ambienteID, ambiente)
+  }
+
+  update(id, ambiente) {
+    this.#ambientes.set(id, ambiente)
+  }
+
+  delete(id) {
+    this.#ambientes.delete(id)
+  }
+
+  add(ambId, dispositivo) {
+    const dispositivoId = randomUUID()
+
+    const ambienteComArray = Array.from(this.#ambientes.entries()).map(
+      ambienteArray => {
+        const id = ambienteArray[0]
+        const data = ambienteArray[1]
+
+        return {
+          id,
+          ...data
+        }
+      }
+    )
+
+    function teste(ambId) {
+      for (let i = 0; i < ambienteComArray.length; i++) {
+        if (ambId == ambienteComArray[i].id) {
+          return ambienteComArray[i]
+        }
+      }
+      return false
     }
 
-    create(ambiente){
-        const ambienteID = randomUUID()
+    const vai = teste(ambId)
+    vai.dispositivos.push({
+      dispositivoId,
+      ...dispositivo
+    })
 
-        this.#ambientes.set(ambienteID, ambiente)
-    }
+    this.#ambientes.set(ambId, vai)
+  }
 
-    update(id, ambiente) {
-        this.#ambientes.set(id, ambiente)
-    }
+  dispDelete(ambId, disID) {
+    const ambienteComArray = Array.from(this.#ambientes.entries()).map(
+        ambienteArray => {
+          const id = ambienteArray[0]
+          const data = ambienteArray[1]
+  
+          return {
+            id,
+            ...data
+          }
+        }
+      )
 
-    delete(id){
-        this.#ambientes.delete(id)
-    }
+      function teste(ambId) {
+        for (let i = 0; i < ambienteComArray.length; i++) {
+          if (ambId == ambienteComArray[i].id) {
+            return ambienteComArray[i]
+          }
+        }
+        return false
+      }
 
-    add(id, dispositivo){
-        const dispositivoId = randomUUID()
+      const vai = teste(ambId)
 
-        this.#ambientes.set(id)
+      function testeDisp(disID) {
+        for (let j = 0; j < vai.dispositivos.length; j++) {
+          if (disID == vai.dispositivos[j].dispositivoId) {
+            return j
+          }
+        }
+        return false
+      }
 
-        return
-    }
+    const vem = testeDisp(disID)
+    vai.dispositivos.splice(vem, 1)
+
+    this.#ambientes.set(ambId, vai)
+  }
+
+
 }
