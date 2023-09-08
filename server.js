@@ -33,7 +33,7 @@ server.put('/ambiente/:id', (request, reply) => {
     dispositivos
   })
 
-  return reply.status(204).send()
+    return reply.status(204).send()
 })
 
 server.delete('/ambiente/:id', (request, reply) => {

@@ -47,8 +47,11 @@ vai[0].dispositivos
 
 console.log(vai)
 
-*/
-//console.log(ambiente[0].dispositivos)
+
+
+
+==================================================================
+
 
 const vai = {
   id: '4e3e8188-1f06-4976-9e98-028ed9821e8b',
@@ -80,3 +83,15 @@ function testeDisp(DisId) {
 
 vai.dispositivos.splice(0, 1)
 console.log(vai)
+*/
+//console.log(ambiente[0].dispositivos)
+
+const arrayAmb = [
+  {
+    id: 'a80e39bf-b33a-4d75-9759-bc4f5a401644',
+    descricao: 'quarto',
+    dispositivos: []
+  }
+]
+
+console.log(arrayAmb[0].dispositivos.length == 0)

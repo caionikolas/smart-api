@@ -22,11 +22,11 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:3000/ambiente/8866f245-ea54-42d2-825d-bb30ac6de74f
+DELETE http://localhost:3000/ambiente/27ab3521-6da7-42dc-a082-4295d9e133b9
 
 ###
 
-POST http://localhost:3000/ambiente/40fe77a6-133a-493c-a002-9eae32415dad/dispositivo
+POST http://localhost:3000/ambiente/27ab3521-6da7-42dc-a082-4295d9e133b9/dispositivo
 Content-Type: application/json
 
 {
@@ -37,5 +37,5 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:3000/ambiente/7d59b0ce-491c-47e8-9589-c9211040b9e0/dispositivo/47ec71c7-459f-4c93-8105-48609e6554b7
+DELETE http://localhost:3000/ambiente/896a6e63-ab97-4155-9531-4cc2a06a488a/dispositivo/f8606d62-7a3b-4650-8618-4d0a0f14aa10
 
