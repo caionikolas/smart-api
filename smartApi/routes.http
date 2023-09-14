@@ -22,7 +22,8 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:3000/ambiente/27ab3521-6da7-42dc-a082-4295d9e133b9
+DELETE http://localhost:3000/ambiente/2c4cc6fd-dd28-4d42-964b-bffc8fbb08aa
+
 
 ###
 
