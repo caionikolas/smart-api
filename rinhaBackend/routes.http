@@ -30,16 +30,3 @@ DELETE http://localhost:3000/pessoas/3811140a-fe6a-497b-b972-40cc9f230e3b
 
 ###
 
-POST http://localhost:3000/ambiente/643e3a15-14b5-45eb-883b-a6908dadaa11/dispositivo
-Content-Type: application/json
-
-{
-    "nome": "Lampada",
-    "conexao": "ligado",
-    "status": true
-}
-
-###
-
-DELETE http://localhost:3000/ambiente/896a6e63-ab97-4155-9531-4cc2a06a488a/dispositivo/f8606d62-7a3b-4650-8618-4d0a0f14aa10
-
