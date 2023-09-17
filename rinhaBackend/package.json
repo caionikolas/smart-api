@@ -1,6 +1,7 @@
 {
   "dependencies": {
-    "fastify": "^4.22.2"
+    "fastify": "^4.22.2",
+    "postgres": "^3.3.5"
   },
   "scripts": {
     "start": "node server.js",
@@ -9,10 +10,12 @@
   "name": "smart-api",
   "version": "1.0.0",
   "main": "server.js",
-  "devDependencies": {},
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "dotenv": "^16.3.1"
+  }
 }
