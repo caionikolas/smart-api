@@ -70,8 +70,11 @@ export default function App() {
 
   return (
     <View style={styles.container}>
+      <Text style={styles.Tittle}>Calculadora IMC 💪</Text>
+
+
       <View style={styles.inputGenero}>
-        <Text>Feminino</Text>
+        <Text style={styles.text}>Feminino</Text>
         <Switch
           trackColor={{ false: "#ffc0cb", true: "#81b0ff" }}
           thumbColor={ genero ? "#81b0ff" : "#ffc0cb" }
@@ -79,18 +82,18 @@ export default function App() {
           onValueChange={toggleSwitch}
           value={genero}
         />
-        <Text>Masculino</Text>
+        <Text style={styles.text}>Masculino</Text>
       </View>
       
 
-      <Text>Altura</Text>
+      <Text style={styles.text}>Altura</Text>
       <TextInput 
         style={styles.input}
         keyboardType='number-pad'
         value={altura}
         onChangeText={(text) => setAltura(text.replace(/\D/g, ""))}
       />
-      <Text>Peso</Text>
+      <Text style={styles.text}>Peso</Text>
       <TextInput 
         style={styles.input}
         keyboardType='number-pad'
@@ -100,7 +103,7 @@ export default function App() {
       <TouchableOpacity onPress={handleCalcular} style={styles.button}>
         <Text style={styles.buttonText}>Calcular</Text>
       </TouchableOpacity>
-      <StatusBar style="auto" />
+      <StatusBar style="light" />
     </View>
   );
 }
@@ -108,7 +111,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#1f2937',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -120,11 +123,11 @@ const styles = StyleSheet.create({
   input:{
     height:54,
     width:"80%",
-    backgroundColor:"fff",
+    backgroundColor:"#fff",
     borderRadius:8,
     justifyContent:"center",
     paddingHorizontal:16,
-    marginTop:4,
+    marginTop:7,
     borderWidth:1,
     borderColor:"#000"
   },
@@ -139,8 +142,17 @@ const styles = StyleSheet.create({
     marginTop: 16,
   },
   buttonText:{
-    fontFamily: "Poppins_600SemiBold",
     color: "#FFF",
     fontSize: 12,
   },
+  text: {
+    color: '#fff'
+  },
+  Tittle: {
+    color: '#fff',
+    fontSize: 30,
+    position: 'relative',
+    bottom: 70,
+  },
+
 });
